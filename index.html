@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WILT</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+  </head>
+  <link rel="stylesheet" href="output.css" />
+  <script src="/node_modules/vue/dist/vue.js" defer></script>
+  <script src="/app.js" defer></script>
+  <body class="bg-white">
+    <section id="app" class="container">
+      <h1 class="text-center text-6xl m-4">
+        What I learned today!
+      </h1>
+
+      <div
+        class="tweet-container bg-gray-100 rounded-lg p-3 pl-1 inline-flex m-4 pr-6 shadow"
+        v-for="tweet in tweets"
+      >
+        <div class="card">
+          <div class="">
+            <p class="text-lg font-bold border-b border-gray-400 ml-5">
+              {{ username }}
+            </p>
+          </div>
+          <div class="mt-2 pl-5">
+            <span>{{ tweet }}</span
+            ><br />
+            <time datetime="2019-1-1"> {{ date }}</time>
+          </div>
+        </div>
+      </div>
+
+      <form class="form items-center card shadow rounded-lg max-w-md p-1 mb-10">
+        <label for="tweet" class="m-2 block object-left-top">New message</label>
+        <textarea
+          class="block border container-sm m-2 p-2"
+          placeholder="What did you learn today?"
+          rows="2"
+          cols="50"
+          v-model="newTweet"
+          value="tweet"
+        ></textarea>
+        <button
+          class="bg-accent-blue block rounded p-2 m-4"
+          type="submit"
+          v-on:click="addTweet"
+        >
+          Post message
+        </button>
+      </form>
+    </section>
+  </body>
+</html>
