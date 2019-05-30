@@ -17,6 +17,9 @@ new Vue({
     addTweet: function() {
       this.tweets.push(this.newTweet);
       this.newTweet = "";
+    },
+    resetTweet: function() {
+      this.tweets = [];
     }
   },
   mounted() {
